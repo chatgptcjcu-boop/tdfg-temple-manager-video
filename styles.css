@@ -105,6 +105,56 @@ h1 {
   color: #14110a;
 }
 
+.voice-samples {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.voice-samples h2,
+.sample h3,
+.sample-line {
+  margin: 0;
+}
+
+.voice-samples h2 {
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.sample-line {
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sample {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.sample h3 {
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.sample audio {
+  width: 100%;
+}
+
 @media (max-width: 640px) {
   .page {
     width: min(100% - 24px, 1120px);
@@ -119,5 +169,9 @@ h1 {
   .button {
     width: 100%;
     text-align: center;
+  }
+
+  .sample-grid {
+    grid-template-columns: 1fr;
   }
 }
