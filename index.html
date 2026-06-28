@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="宮廟管理師 60 秒形象影片試播頁" />
+    <meta property="og:title" content="宮廟管理師 60 秒形象影片" />
+    <meta property="og:description" content="神明的事，交給專業的人來守護。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/poster.jpg" />
+    <title>宮廟管理師 60 秒形象影片</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero" aria-label="宮廟管理師影片試播">
+        <div class="copy">
+          <p class="eyebrow">臺灣道法總會教育委員會</p>
+          <h1>宮廟管理師 60 秒形象影片</h1>
+          <p class="lead">神明的事，交給專業的人來守護。</p>
+        </div>
+
+        <div class="player-wrap">
+          <video
+            class="player"
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/poster.jpg"
+          >
+            <source src="assets/temple-manager-hyperframe.mp4" type="video/mp4" />
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+
+        <div class="actions" aria-label="影片操作">
+          <a class="button primary" href="assets/temple-manager-hyperframe.mp4" download>
+            下載 MP4
+          </a>
+          <button class="button" type="button" id="shareButton">分享連結</button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const button = document.querySelector("#shareButton");
+      button.addEventListener("click", async () => {
+        const shareData = {
+          title: "宮廟管理師 60 秒形象影片",
+          text: "神明的事，交給專業的人來守護。",
+          url: window.location.href,
+        };
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(window.location.href);
+        button.textContent = "已複製連結";
+        setTimeout(() => {
+          button.textContent = "分享連結";
+        }, 1800);
+      });
+    </script>
+  </body>
+</html>
