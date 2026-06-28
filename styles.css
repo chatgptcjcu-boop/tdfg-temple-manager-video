@@ -37,6 +37,12 @@ body {
   gap: 22px;
 }
 
+.hero.episode {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
 .copy {
   display: grid;
   gap: 10px;
